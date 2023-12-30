@@ -24,8 +24,10 @@
                            data-action="mouseover->celebrate#explot">
                             <img src="{{ asset('images/logo.png') }}" width="50" alt="Space Inviters Logo" >
                         </a>
+                        {#cuando tengo "data-turbo-preload" me permite precargar la vista para que sea inmediata
+                        siempre y cuando tenga una idea de lo que va hacer el usuario a continuacion#}
                         <a href="{{ path('app_homepage') }}" class="text-xl ml-3">Space Inviters</a>
-                        <a href="{{ path('app_voyage_index') }}" class="ml-6 hover:text-gray-400">Voyages</a>
+                        <a href="{{ path('app_voyage_index') }}" {#data-turbo-preload#} class="ml-6 hover:text-gray-400">Voyages</a>
                         <a href="{{ path('app_planet_index') }}" class="ml-4 hover:text-gray-400">Planets</a>
                     </div>
                     <div
