@@ -6,6 +6,9 @@ export default class extends Controller {
     explot(){
         /*llamo a la funcion jsconfeti, esto lo voy a cambiar para que solamente este en el logo de la web*/
         const jsConfetti = new JSConfetti();
-        jsConfetti.addConfetti();
+        jsConfetti.addConfetti({
+            /*Me pertime modificar que hace el confetti*/
+            emojis: ['🌈', '⚡️', '💥', '✨', '💫', '🌸'],
+        })
     }
 }
