@@ -115,7 +115,7 @@
                                                 </h4>
                                                 <small>{{ voyage.planet.lightYearsFromEarth|round|number_format }} ly</small>
                                             </div>#}
-                                            <turbo-frame loading="lazy" id="planet-card-{{ voyage.planet.id }}" src="{{ path('app_planet_show_card', {
+                                            <turbo-frame data-skip-transition loading="lazy" id="planet-card-{{ voyage.planet.id }}" src="{{ path('app_planet_show_card', {
                                                 'id': voyage.planet.id,
                                             }) }}">
                                                 <div class="p-10">
