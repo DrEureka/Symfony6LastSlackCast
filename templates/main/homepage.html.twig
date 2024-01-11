@@ -43,6 +43,8 @@
                 action="{{ path('app_homepage') }}"
                 class="mb-6 flex justify-between"
                 data-controller="autosubmit"
+               {# Le permito a turboframe tener acceso a voyage list para que no este recargando continuamente el buscador#}
+                data-turbo-frame="voyage-list"
             >
                 <input
                     type="search"
@@ -56,6 +58,8 @@
                 >
                 <div class="whitespace-nowrap m-2 mr-4">{{ voyages|length }} results</div>
             </form>
+            {#Aca initialize el turbo frame#}
+            <turbo-frame id="voyage-list" data-turbo-action="advance" class="aria-busy:opacity-50 aria-busy:blur-sm transition-all aria-busy:delay-700">
             <div class="bg-gray-800 p-4 rounded">
                 <table class="w-full text-white">
                     <thead>
@@ -132,6 +136,7 @@
                     </tbody>
                 </table>
             </div>
+
             <div class="flex items-center mt-6 space-x-4">
                 {% if voyages.hasPreviousPage %}
                     <a href="{{ pagerfanta_page_url(voyages, voyages.previousPage) }}" class="block py-2 px-4 bg-gray-700 text-white rounded hover:bg-gray-600">Previous</a>
@@ -143,6 +148,7 @@
                     Page {{ voyages.currentPage }}/{{ voyages.nbPages }}
                 </div>
             </div>
+            </turbo-frame>
         </section>
     </div>
 {% endblock %}

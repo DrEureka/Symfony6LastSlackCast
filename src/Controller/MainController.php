@@ -25,6 +25,7 @@ class MainController extends AbstractController
         #[MapQueryParameter('planets', \FILTER_VALIDATE_INT)] array $searchPlanets = [],
     ): Response
     {
+        /*sleep(1);*/
         $validSorts = ['purpose', 'leaveAt'];
         $sort = in_array($sort, $validSorts) ? $sort : 'leaveAt';
         /*$voyages = $voyageRepository->findBySearch($query, $searchPlanets);*/
