@@ -68,7 +68,7 @@ class PlanetController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
-
+// Desde aca envio el mensaje flash hacia el toast
             $this->addFlash('success', 'Planet updated!');
 
             return $this->redirectToRoute('app_planet_index', [], Response::HTTP_SEE_OTHER);
