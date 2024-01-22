@@ -24,6 +24,8 @@ module.exports = {
   plugins: [
     plugin(function({ addVariant }) {
       addVariant('turbo-frame', 'turbo-frame[src] &')
+      addVariant('modal', 'dialog &')
+
     }),
   ],
 }
