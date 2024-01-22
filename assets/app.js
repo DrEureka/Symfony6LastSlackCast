@@ -26,7 +26,7 @@ document.addEventListener('turbo:before-render', (event) => {
 });
 document.addEventListener('turbo:load', () => {
     // View Transitions don't play nicely with Turbo cache
-    if (shouldPerformTransition()) Turbo.cache.exemptPageFromCache();
+    // if (shouldPerformTransition()) Turbo.cache.exemptPageFromCache();
 });
 
 /*Turbo frame transition*/
