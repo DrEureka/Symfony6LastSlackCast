@@ -11,6 +11,7 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\UX\Turbo\TurboBundle;
 
 #[Route('/voyage')]
 class VoyageController extends AbstractController
@@ -29,7 +30,7 @@ class VoyageController extends AbstractController
         $voyage = new Voyage();
         $form = $this->createVoyageForm($voyage);
         $form->handleRequest($request);
-        sleep(2);
+       /* sleep(2);*/
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($voyage);
@@ -38,9 +39,15 @@ class VoyageController extends AbstractController
             $this->addFlash('success', 'Bon voyage!');
 //Metodo 1: stream
             if ($request->headers->has('turbo-frame')) {
+               /* Procesado por turboStream para que este escuchando continuamente*/
+               /* $request->setRequestFormat(TurboBundle::STREAM_FORMAT);*/
+                /* Procesado por proceso normal sin turbostream*/
                 $stream = $this->renderBlockView('voyage/new.html.twig', 'stream_success', [
+                /* Procesado por turboStream para que este escuchando continuamente*/
+                /*return $this->renderBlock('voyage/new.html.twig', 'stream_success', [*/
                     'voyage' => $voyage
                 ]);
+                /* Procesado por proceso normal sin turbostream*/
                 $this->addFlash('stream', $stream);
             }
 
